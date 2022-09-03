@@ -14,11 +14,14 @@ using std::string;
 using std::cout;
 using std::endl;
 
-//Function Prototypes
+/************************************************************************************
+                            FUNCTION PROTOTYPES
+*************************************************************************************/
 string generate_binary_string(int decimal);
-
-
-
+string convert_bin_hex(string binary);
+/************************************************************************************
+ *                                  MAIN
+*************************************************************************************/
 int main()
 {
     cout<<"Decimal:\tBinary:\t\tHexadecimal:\t"<<endl;
@@ -29,45 +32,34 @@ int main()
     }
     return 0;
 }
-
-
-
-
-
-/*
-string generate_binary_string(int decimal)
+/************************************************************************************
+                    string generate_binary_string(int decimal)
 Input: The decimal number you want to change to binary 
 Output: Returns a string containing the binary number of the decmial passed in
-*/
+*************************************************************************************/
 string generate_binary_string(int decimal)
 {
-
     string binary_array[8]={"0","0","0","0","0","0","0","0"};
     string binary_string = "";
     int rem;
     int count = 7;
-
         while (decimal !=0)
         {
             rem = decimal %2;
-            if (rem == 0)
-            {
-                binary_array[count] = "0";
-            }
-            else if (rem == 1)
-            {
-                binary_array[count] = "1";
-            }
+            if (rem == 0){ binary_array[count] = "0"; }
+            else if (rem == 1){binary_array[count] = "1";}
             decimal = (decimal/2);
             count--;
-      
         }
-    
+        for (int i = 0; i <8; i++) {binary_string =  binary_string+ binary_array[i] ;}
+        return binary_string;
+}
+/************************************************************************************
+                        string convert_bin_hex(string binary)
+Input: The binary number you want to change to hexadecimal 
+Output: Returns a string containing the hexadecimal number of the binary passed in
+*************************************************************************************/  
+string convert_bin_hex(string binary)
+{
 
-    for (int i = 0; i <8; i++)
-    {
-        //cout<<binary_array[i];
-        binary_string =  binary_string+ binary_array[i] ;
-    }
-    return binary_string;
 }
